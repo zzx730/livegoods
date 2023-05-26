@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.zzx</groupId>
+    <artifactId>livegoods</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>livegoods-eureka</module>
+        <module>livegoods-banner</module>
+        <module>livegoods-config-server</module>
+        <module>livegoods-buyaction</module>
+        <module>livegoods-buyaction-message-consumer</module>
+        <module>livegoods-buytime</module>
+        <module>livegoods-cache-redis</module>
+        <module>livegoods-comment</module>
+        <module>livegoods-commons</module>
+        <module>livegoods-details</module>
+        <module>livegoods-gateway</module>
+        <module>livegoods-hot-product</module>
+        <module>livegoos-login</module>
+        <module>livegoods-mongodb-dao</module>
+        <module>livegoods-order</module>
+        <module>livegoods-rabbit-publisher</module>
+        <module>livegoods-recommendation</module>
+        <module>livegoods-search</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <spring-boot-version>3.0.5</spring-boot-version>
+        <cloud-version>2022.0.2</cloud-version>
+        <lcn-version>5.0.0</lcn-version>
+        <fastdfs-version>1.27</fastdfs-version>
+        <commons-lang-version>3.12.0</commons-lang-version>
+        <lombok-version>1.18.26</lombok-version>
+        <config-client-version>4.0.0</config-client-version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot-version}
+                </version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${cloud-version}
+                </version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok-version}
+                </version>
+            </dependency>
+            <!-- fastdfs -->
+            <dependency>
+                <groupId>cn.bestwu</groupId>
+                <artifactId>fastdfs-client-java</artifactId>
+                <version>${fastdfs-version}
+                </version>
+            </dependency>
+            <dependency>
+
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-langversion}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>repackage</id>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>com.spotify</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>1.0.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.9.0</version>
+                    <configuration>
+                        <target>17</target>
+                        <source>17</source>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>

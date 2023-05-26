@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="435442da-87a8-4185-9323-b82b9acc56a0" name="Changes" comment="阿里云短信验证码" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="zzx730 &lt;110280449+zzx730@users.noreply.github.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../software/apache-maven-3.9.1" />
+        <option name="userSettingsFile" value="D:\software\apache-maven-3.9.1\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2PtsjG9yXaU9FcBvlNZo3AFohjJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "D:/CODE/IDEA/livegoods/livegoos-login/src/main/java/com/livegoods/login/utils",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "spring.configuration.checksum": "0e0d35c1afe6f7a6f43a9c3efb2f7ef2"
+  },
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+    ]
+  }
+}]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\CODE\IDEA\livegoods\livegoos-login\src\main\java\com\livegoods\login\utils" />
+      <recent name="D:\CODE\IDEA\livegoods\livegoods-buyaction\src\main\java\com\livegoods\buyaction" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\CODE\IDEA\livegoods\livegoods-details\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.livegoods.buyaction.message" />
+      <recent name="com.livegoods.commons.vo" />
+      <recent name="com.livegoods.commons.pojo" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.OrderApplication">
+    <configuration name="BannerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="livegoods-banner" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.livegoods.banner.BannerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BuyactionApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="livegoods-buyaction" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.livegoods.buytime.BuyactionApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.livegoods.buytime.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BuytimeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="livegoods-buytime" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.livegoods.buytime.BuytimeApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.livegoods.buytime.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CommentApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="livegoods-comment" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.livegoods.comment.CommentApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.livegoods.comment.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="livegoods-config-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.livegoods.config.ConfigServerApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.livegoods.config.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DetailsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="livegoods-details" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.livegoods.details.DetailsApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.livegoods.details.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="livegoods-eureka" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.livegoods.EurekaServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="livegoods-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.livegoods.gateway.GatewayApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.livegoods.gateway.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HotProductApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="livegoods-hot-product" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.livegoods.hotproduct.HotProductApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.livegoods.hotproduct.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="livegoos-login" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.livegoods.login.LoginApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.livegoods.login.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MessageConsumerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="livegoods-buyaction-message-consumer" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.livegoods.buytime.message.MessageConsumerApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.livegoods.buytime.message.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="livegoods-order" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.livegoods.order.OrderApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.livegoods.order.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RecommendationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="livegoods-recommendation" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.livegoods.recommendation.RecommendationApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.livegoods.recommendation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SearchApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="livegoods-search" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.livegoods.search.SearchApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.livegoods.search.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.CommentApplication" />
+      <item itemvalue="Spring Boot.ConfigServerApplication" />
+      <item itemvalue="Spring Boot.DetailsApplication" />
+      <item itemvalue="Spring Boot.EurekaServerApplication" />
+      <item itemvalue="Spring Boot.GatewayApplication" />
+      <item itemvalue="Spring Boot.MessageConsumerApplication" />
+      <item itemvalue="Spring Boot.SearchApplication" />
+      <item itemvalue="Spring Boot.BannerApplication" />
+      <item itemvalue="Spring Boot.BuyactionApplication" />
+      <item itemvalue="Spring Boot.BuytimeApplication" />
+      <item itemvalue="Spring Boot.LoginApplication" />
+      <item itemvalue="Spring Boot.HotProductApplication" />
+      <item itemvalue="Spring Boot.RecommendationApplication" />
+      <item itemvalue="Spring Boot.OrderApplication" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="435442da-87a8-4185-9323-b82b9acc56a0" name="Changes" comment="" />
+      <created>1684287848899</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1684287848899</updated>
+      <workItem from="1684287850163" duration="1878000" />
+      <workItem from="1684295029043" duration="19273000" />
+      <workItem from="1684339515392" duration="48436000" />
+      <workItem from="1684551257781" duration="34977000" />
+      <workItem from="1684717508846" duration="32005000" />
+      <workItem from="1684801724227" duration="621000" />
+      <workItem from="1684803030565" duration="24899000" />
+      <workItem from="1684846679189" duration="776000" />
+      <workItem from="1684847484134" duration="759000" />
+      <workItem from="1684848284277" duration="1174000" />
+      <workItem from="1684852049966" duration="37698000" />
+      <workItem from="1684974121324" duration="35682000" />
+      <workItem from="1685071059181" duration="20211000" />
+      <workItem from="1685100688299" duration="1771000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/zfw-cloud-config" />
+      <path value="$PROJECT_DIR$" />
+      <path value="$PROJECT_DIR$/" />
+    </ignored-roots>
+    <MESSAGE value="Create README.md" />
+    <MESSAGE value="阿里云短信验证码" />
+    <option name="LAST_COMMIT_MESSAGE" value="阿里云短信验证码" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

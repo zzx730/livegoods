@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: livegoods-message-consumer
+  profiles:
+    active: itemCacheName,mongodb,redis
+  cloud:
+    config:
+      uri: http://localhost:9010
+      label: master
+      name: rabbit
+      profile: dev
+    stream:
+      bindings:
+        # 对应的真实的 RabbitMQ Exchange
+        livegoodsMessenger-in-0:
+          destination: livegoodsTopic
+        livegoodsMessenger-out-0:
+          destination: livegoodsTopic
+      function:
+        definition: livegoodsMessenger

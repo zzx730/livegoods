@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="livegoods-buyaction" />
+        <module name="livegoods-order" />
+        <module name="livegoods-recommendation" />
+        <module name="livegoods-buytime" />
+        <module name="livegoods-gateway" />
+        <module name="livegoods-mongodb-dao" />
+        <module name="livegoods-comment" />
+        <module name="livegoods-search" />
+        <module name="livegoods-cache-redis" />
+        <module name="livegoods-hot-product" />
+        <module name="livegoods-eureka" />
+        <module name="livegoods-config-server" />
+        <module name="livegoods-commons" />
+        <module name="livegoos-login" />
+        <module name="livegoods-rabbit-publisher" />
+        <module name="livegoods-details" />
+        <module name="livegoods-buyaction-message-consumer" />
+        <module name="livegoods-banner" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

@@ -1,0 +1,20 @@
+server:
+  port: 9010
+spring:
+  application:
+    name: livegoods-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/zzx0402/zfw-cloud-config.git
+          search-paths:
+            - livegoods
+      label: master
+eureka:
+  client:
+    service-url:
+      defaultZone:
+        http://192.168.126.30:8761/eureka/
+    instance:
+      prefer-ip-address: true

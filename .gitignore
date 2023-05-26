@@ -1,0 +1,19 @@
+# Project exclude paths
+/livegoods-banner/target/
+/livegoods-buyaction/target/
+/livegoods-buyaction-message-consumer/target/
+/livegoods-buytime/target/
+/livegoods-cache-redis/target/
+/livegoods-comment/target/
+/livegoods-commons/target/
+/livegoods-config-server/target/
+/livegoods-details/target/
+/livegoods-eureka/target/
+/livegoods-gateway/target/
+/livegoods-hot-product/target/
+/livegoods-mongodb-dao/target/
+/livegoods-order/target/
+/livegoods-rabbit-publisher/target/
+/livegoods-recommendation/target/
+/livegoods-search/target/
+/livegoos-login/target/

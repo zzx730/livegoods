@@ -1,0 +1,13 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: livegoods-hot-product
+  profiles:
+    active: mongodb,bannerNginx
+  cloud:
+    config:
+      uri: http://localhost:9010
+      label: master
+      name: livegoods
+      profile: dev

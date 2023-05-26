@@ -1,0 +1,10 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: livegoods-eureka-server
+eureka:
+  client:
+    # 不在Eureka服务中进行注册
+    fetch-registry: false
+    register-with-eureka: false

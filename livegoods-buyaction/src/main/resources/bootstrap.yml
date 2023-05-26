@@ -1,0 +1,30 @@
+server:
+  port: 9008
+spring:
+  application:
+    name: livegoods-buyaction
+  # application-后面跟的文件名就是active中属性值，如果存在，则该配置文件会被引用
+  profiles:
+    active: itemCacheName,redis,rabbit
+  cloud:
+    config:
+      uri: http://localhost:9010
+      label: master
+      name: livegoods
+      profile: dev
+    stream:
+      bindings:
+        # 消费者绑定名称，livegoodsMessenger是自定义的，in-消费者 0-固定写法
+        livegoodsMessenger-in-0:
+          # RabbitMQ中真实存在的交换机
+          destination: livegoodsTopic
+        # 生产者绑定名称，livegoodsMessenger是自定义的，out-生产者 0-固定写法
+        livegoodsMessenger-out-0:
+           # RabbitMQ中真实存在的交换机
+           destination: livegoodsTopic
+      function:
+        # 定义消费者，多个需使用,隔开
+        definition: livegoodsMessenger
+logging:
+  pattern:
+    console: '%d{MM/dd HH:mm:ss.SSS} %clr(%-5level) --- [%-15thread] %cyan(%-50logger{50}):%msg%n'

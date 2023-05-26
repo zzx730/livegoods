@@ -1,0 +1,225 @@
+Index: livegoos-login/src/main/java/com/livegoods/login/utils/SMSUtils.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/livegoos-login/src/main/java/com/livegoods/login/utils/SMSUtils.java b/livegoos-login/src/main/java/com/livegoods/login/utils/SMSUtils.java
+new file mode 100644
+--- /dev/null	(date 1685092468974)
++++ b/livegoos-login/src/main/java/com/livegoods/login/utils/SMSUtils.java	(date 1685092468974)
+@@ -0,0 +1,72 @@
++package com.livegoods.login.utils;
++
++import com.aliyuncs.DefaultAcsClient;
++import com.aliyuncs.IAcsClient;
++import com.aliyuncs.dysmsapi.model.v20170525.SendSmsRequest;
++import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
++import com.aliyuncs.exceptions.ClientException;
++import com.aliyuncs.http.MethodType;
++import com.aliyuncs.profile.DefaultProfile;
++import com.aliyuncs.profile.IClientProfile;
++
++/**
++ * 短信发送工具类
++ *
++ */
++public class SMSUtils {
++//	public static final String VALIDATE_CODE = "SMS_460945002";//发送短信验证码
++	public static final String ORDER_NOTICE = "SMS_460935004";//体检预约成功通知
++	// 我的短信验证码
++	public static final String VALIDATE_CODE = "SMS_461035181";//发送短信验证码
++//	public static final String VALIDATE_CODE = "SMS_279525106";
++
++
++	/**
++	 * 发送短信
++	 * @param phoneNumbers
++	 * @param param
++	 * @throws ClientException
++	 */
++	public static Boolean sendShortMessage(String templateCode,String phoneNumbers,Integer param) throws ClientException{
++		// 设置超时时间-可自行调整
++		System.setProperty("sun.net.client.defaultConnectTimeout", "10000");
++		System.setProperty("sun.net.client.defaultReadTimeout", "10000");
++		// 初始化ascClient需要的几个参数
++		final String product = "Dysmsapi";// 短信API产品名称（短信产品名固定，无需修改）
++		final String domain = "dysmsapi.aliyuncs.com";// 短信API产品域名（接口地址固定，无需修改）
++		// 替换成你的AK
++		final String accessKeyId = "LTAI5tCtChrk2CRmtg2MMW5g";// 你的accessKeyId,参考本文档步骤2
++		final String accessKeySecret = "Xv9V09X4hcUkold0svYehRyZ9FRZfg";// 你的accessKeySecret，参考本文档步骤2
++		// 初始化ascClient,暂时不支持多region（请勿修改）
++		IClientProfile profile = DefaultProfile.getProfile("cn-hangzhou", accessKeyId, accessKeySecret);
++		DefaultProfile.addEndpoint("cn-hangzhou", "cn-hangzhou", product, domain);
++		IAcsClient acsClient = new DefaultAcsClient(profile);
++		// 组装请求对象
++		SendSmsRequest request = new SendSmsRequest();
++		// 使用post提交
++		request.setMethod(MethodType.POST);
++		// 必填:待发送手机号。支持以逗号分隔的形式进行批量调用，批量上限为1000个手机号码,批量调用相对于单条调用及时性稍有延迟,验证码类型的短信推荐使用单条调用的方式
++		request.setPhoneNumbers(phoneNumbers);
++		// 必填:短信签名-可在短信控制台中找到
++		request.setSignName("帅得真的是无敌了的博客");
++		// 必填:短信模板-可在短信控制台中找到
++		request.setTemplateCode(templateCode);
++		// 可选:模板中的变量替换JSON串,如模板内容为"亲爱的${name},您的验证码为${code}"时,此处的值为
++		// 友情提示:如果JSON中需要带换行符,请参照标准的JSON协议对换行符的要求,比如短信内容中包含\r\n的情况在JSON中需要表示成\\r\\n,否则会导致JSON在服务端解析失败
++		request.setTemplateParam("{\"code\":\""+param+"\"}");
++		// 可选-上行短信扩展码(扩展码字段控制在7位或以下，无特殊需求用户请忽略此字段)
++		// request.setSmsUpExtendCode("90997");
++		// 可选:outId为提供给业务方扩展字段,最终在短信回执消息中将此值带回给调用者
++		// request.setOutId("yourOutId");
++		// 请求失败这里会抛ClientException异常
++		SendSmsResponse sendSmsResponse = acsClient.getAcsResponse(request);
++		if (sendSmsResponse.getCode() != null && sendSmsResponse.getCode().equals("OK")) {
++			// 请求成功
++			System.out.println("请求成功");
++			return true;
++		}else {
++			System.out.println("请求失败");
++			return false;
++		}
++	}
++}
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1685076958636)
++++ b/.idea/vcs.xml	(date 1685076958636)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: livegoos-login/src/main/java/com/livegoods/login/service/impl/LoginServiceImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.livegoods.login.service.impl;\r\n\r\nimport com.livegoods.commons.pojo.LoginLog;\r\nimport com.livegoods.commons.pojo.ValidateCode;\r\nimport com.livegoods.commons.vo.LivegoodsResult;\r\nimport com.livegoods.login.dao.LoginLogDao;\r\nimport com.livegoods.login.dao.ValidateCodeDao;\r\nimport com.livegoods.login.service.LoginService;\r\nimport io.micrometer.common.util.StringUtils;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.stereotype.Service;\r\n\r\nimport java.util.Date;\r\nimport java.util.Random;\r\n\r\n// 用户登录服务实现类\r\n@Service\r\npublic class LoginServiceImpl implements LoginService {\r\n    @Autowired\r\n    private ValidateCodeDao validateCodeDao;\r\n    @Autowired\r\n    private LoginLogDao loginLogDao;\r\n    /**\r\n     * 发送验证码到手机号\r\n     * @param phone\r\n     * @return\r\n     */\r\n    @Override\r\n    public LivegoodsResult sendyzm(String phone) {\r\n        //查找phone对应的验证码\r\n        ValidateCode validateCode = validateCodeDao.get(phone);\r\n        if(validateCode!=null){\r\n            return LivegoodsResult.ok(\"验证码已经发送，请勿重复申请\");\r\n        }\r\n        StringBuilder stringBuilder = new StringBuilder();\r\n        Random r = new Random();\r\n        // 生成4位数的验证码\r\n        for (int i = 0; i < 4; i++) {\r\n            stringBuilder.append(r.nextInt(10));\r\n        }\r\n        String validateCode_1 = stringBuilder.toString();\r\n        // 创建验证码对象\r\n        ValidateCode code = new ValidateCode();\r\n        code.setPhone(phone);\r\n        code.setValidateCode(validateCode_1);\r\n        // 将验证码对象保存到redis中\r\n        validateCodeDao.set(phone,code);\r\n\r\n        //返回结果\r\n        LivegoodsResult result = LivegoodsResult.ok();\r\n        result.setMessage(\"验证码发送成功\");\r\n        System.out.println(\"手机号：\"+phone+\"，验证码：\"+validateCode_1);\r\n        return result;\r\n    }\r\n\r\n    /**\r\n     * 登录\r\n     * @param username\r\n     * @param validateCode\r\n     * @return\r\n     */\r\n    @Override\r\n    public LivegoodsResult login(String username, String validateCode) {\r\n        // 1.创建登录日志对象\r\n        LoginLog loginLog = new LoginLog();\r\n        loginLog.setUsername(username);\r\n        loginLog.setLoginTime(new Date());\r\n        // 1-代表验证码登录\r\n        loginLog.setType(\"1\");\r\n\r\n        // 2.从redis中获取对应用户的验证码\r\n        ValidateCode validateCode2 = validateCodeDao.get(username);\r\n        // 2.1 判断验证码是否为空，校验不通过时保存日志\r\n        if(StringUtils.isEmpty(validateCode2.getValidateCode())){\r\n            loginLog.setIsSuccess(false);\r\n            loginLog.setMessage(\"验证码不存在或已过期\");\r\n            loginLogDao.insertLoginLog(loginLog);\r\n            return LivegoodsResult.error(\"验证码已过期\");\r\n        }\r\n        // 2.2 判断验证码与redis中存储的是否一致，校验不通过时保存日志\r\n        if(!validateCode.equals(validateCode2.getValidateCode())){\r\n            loginLog.setIsSuccess(false);\r\n            loginLog.setMessage(\"验证码错误\");\r\n            loginLogDao.insertLoginLog(loginLog);\r\n            return LivegoodsResult.error(\"验证码错误\");\r\n        }\r\n        // 3.保存日志\r\n        loginLog.setIsSuccess(true);\r\n        loginLog.setMessage(\"登录成功\");\r\n        loginLogDao.insertLoginLog(loginLog);\r\n        // 4.从redis中删除验证码\r\n        validateCodeDao.delete(username);\r\n        // 5.返回LivegoodsResult对象，提示登录成功\r\n        return LivegoodsResult.ok(\"登录成功\");\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/livegoos-login/src/main/java/com/livegoods/login/service/impl/LoginServiceImpl.java b/livegoos-login/src/main/java/com/livegoods/login/service/impl/LoginServiceImpl.java
+--- a/livegoos-login/src/main/java/com/livegoods/login/service/impl/LoginServiceImpl.java	(revision 9785ff34117d491b1b1f4461f493bd2c5903772e)
++++ b/livegoos-login/src/main/java/com/livegoods/login/service/impl/LoginServiceImpl.java	(date 1685091149272)
+@@ -1,11 +1,13 @@
+ package com.livegoods.login.service.impl;
+ 
++import com.aliyuncs.exceptions.ClientException;
+ import com.livegoods.commons.pojo.LoginLog;
+ import com.livegoods.commons.pojo.ValidateCode;
+ import com.livegoods.commons.vo.LivegoodsResult;
+ import com.livegoods.login.dao.LoginLogDao;
+ import com.livegoods.login.dao.ValidateCodeDao;
+ import com.livegoods.login.service.LoginService;
++import com.livegoods.login.utils.SMSUtils;
+ import io.micrometer.common.util.StringUtils;
+ import org.springframework.beans.factory.annotation.Autowired;
+ import org.springframework.stereotype.Service;
+@@ -13,6 +15,7 @@
+ import java.util.Date;
+ import java.util.Random;
+ 
++
+ // 用户登录服务实现类
+ @Service
+ public class LoginServiceImpl implements LoginService {
+@@ -30,13 +33,15 @@
+         //查找phone对应的验证码
+         ValidateCode validateCode = validateCodeDao.get(phone);
+         if(validateCode!=null){
+-            return LivegoodsResult.ok("验证码已经发送，请勿重复申请");
++            LivegoodsResult ok = LivegoodsResult.ok();
++            ok.setMessage("验证码已经发送，请勿重复申请");
++            return ok;
+         }
+         StringBuilder stringBuilder = new StringBuilder();
+         Random r = new Random();
+         // 生成4位数的验证码
+         for (int i = 0; i < 4; i++) {
+-            stringBuilder.append(r.nextInt(10));
++            stringBuilder.append(r.nextInt(9)+1);
+         }
+         String validateCode_1 = stringBuilder.toString();
+         // 创建验证码对象
+@@ -47,10 +52,26 @@
+         validateCodeDao.set(phone,code);
+ 
+         //返回结果
+-        LivegoodsResult result = LivegoodsResult.ok();
+-        result.setMessage("验证码发送成功");
+-        System.out.println("手机号："+phone+"，验证码："+validateCode_1);
+-        return result;
++
++        try {
++            Boolean flag = SMSUtils.sendShortMessage(SMSUtils.VALIDATE_CODE, "15728809129", Integer.parseInt(validateCode_1));
++            if(flag) {
++                LivegoodsResult result = LivegoodsResult.ok();
++                result.setMessage("验证码发送成功");
++                System.out.println("手机号：" + phone + "，验证码：" + validateCode_1);
++                return result;
++            }else{
++                validateCodeDao.delete(phone);
++                LivegoodsResult result = LivegoodsResult.error("验证码发送失败");
++                return result;
++            }
++        } catch (ClientException e) {
++            e.printStackTrace();
++            validateCodeDao.delete(phone);
++            LivegoodsResult result = LivegoodsResult.error("验证码发送失败");
++            return result;
++        }
++
+     }
+ 
+     /**
+@@ -91,6 +112,8 @@
+         // 4.从redis中删除验证码
+         validateCodeDao.delete(username);
+         // 5.返回LivegoodsResult对象，提示登录成功
+-        return LivegoodsResult.ok("登录成功");
++        LivegoodsResult ok = LivegoodsResult.ok();
++        ok.setMessage("登录成功");
++        return ok;
+     }
+ }
+Index: livegoos-login/pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <parent>\r\n        <artifactId>livegoods</artifactId>\r\n        <groupId>com.zzx</groupId>\r\n        <version>1.0-SNAPSHOT</version>\r\n    </parent>\r\n    <modelVersion>4.0.0</modelVersion>\r\n\r\n    <artifactId>livegoos-login</artifactId>\r\n\r\n    <properties>\r\n        <maven.compiler.source>17</maven.compiler.source>\r\n        <maven.compiler.target>17</maven.compiler.target>\r\n    </properties>\r\n    <dependencies>\r\n        <!--    SpringSecurity依赖    -->\r\n        <dependency>\r\n            <groupId>org.springframework.boot</groupId>\r\n            <artifactId>spring-boot-starter-security</artifactId>\r\n        </dependency>\r\n\r\n        <!--   mongodb模块依赖     -->\r\n        <dependency>\r\n            <groupId>com.zzx</groupId>\r\n            <artifactId>livegoods-mongodb-dao</artifactId>\r\n            <version>1.0-SNAPSHOT</version>\r\n        </dependency>\r\n        <!--   commons模块依赖     -->\r\n        <dependency>\r\n            <groupId>com.zzx</groupId>\r\n            <artifactId>livegoods-commons</artifactId>\r\n            <version>1.0-SNAPSHOT</version>\r\n        </dependency>\r\n        <!--  redis模块依赖     -->\r\n        <dependency>\r\n            <groupId>com.zzx</groupId>\r\n            <artifactId>livegoods-cache-redis</artifactId>\r\n            <version>1.0-SNAPSHOT</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.springframework.boot</groupId>\r\n            <artifactId>spring-boot-starter-web</artifactId>\r\n        </dependency>\r\n        <!--Eureka客户端-->\r\n        <dependency>\r\n            <groupId>org.springframework.cloud</groupId>\r\n            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>\r\n        </dependency>\r\n        <!--配置中心客户端-->\r\n        <dependency>\r\n            <groupId>org.springframework.cloud</groupId>\r\n            <artifactId>spring-cloud-config-client</artifactId>\r\n        </dependency>\r\n        <!--默认加载bootstrap-->\r\n        <dependency>\r\n            <groupId>org.springframework.cloud</groupId>\r\n            <artifactId>spring-cloud-starter-bootstrap</artifactId>\r\n        </dependency>\r\n    </dependencies>\r\n</project>\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/livegoos-login/pom.xml b/livegoos-login/pom.xml
+--- a/livegoos-login/pom.xml	(revision 9785ff34117d491b1b1f4461f493bd2c5903772e)
++++ b/livegoos-login/pom.xml	(date 1685080655731)
+@@ -16,6 +16,24 @@
+         <maven.compiler.target>17</maven.compiler.target>
+     </properties>
+     <dependencies>
++        <!-- 阿里云工具包 -->
++        <!-- https://mvnrepository.com/artifact/com.aliyun/aliyun-java-sdk-core -->
++        <dependency>
++            <groupId>com.aliyun</groupId>
++            <artifactId>aliyun-java-sdk-core</artifactId>
++            <version>3.7.1</version>
++        </dependency>
++        <dependency>
++            <groupId>javax.xml.bind</groupId>
++            <artifactId>jaxb-api</artifactId>
++            <version>2.3.1</version>
++        </dependency>
++        <dependency>
++            <groupId>com.aliyun</groupId>
++            <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
++            <version>2.2.1</version>
++        </dependency>
++
+         <!--    SpringSecurity依赖    -->
+         <dependency>
+             <groupId>org.springframework.boot</groupId>

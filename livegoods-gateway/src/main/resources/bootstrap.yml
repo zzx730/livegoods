@@ -1,0 +1,80 @@
+server:
+  port: 4006
+spring:
+  application:
+    name: livegoods-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          #不开启网关Gateway的服务注册和发现的功能
+          enabled: false
+          #请求路径上的服务名称转换为小写
+          lower-case-service-id: true
+      routes:
+        - id: banner
+          uri: lb://livegoods-banner
+          #断言如果断言为true则匹配该路由
+          predicates:
+            - Path=/banner
+        - id: hotproduct
+          uri: lb://livegoods-hot-product
+          predicates:
+            - Path=/hotProduct
+            # 请求中必须包含city请求参数。参数内容不限。
+            - Query=city
+        - id: recommendation
+          uri: lb://livegoods-recommendation
+          predicates:
+            - Path=/recommendation
+            # 请求中必须包含city请求参数。参数内容不限。
+            - Query=city
+        - id: details
+          uri: lb://livegoods-details
+          predicates:
+            - Path=/details
+            # 请求中必须包含city请求参数。参数内容不限。
+            - Query=id
+        # 商品评论路由
+        - id: comment
+          uri: lb://livegoods-comment
+          predicates:
+            - Path=/comment
+            # 请求中必须包含city请求参数。参数内容不限。
+            - Query=id
+            - Query=page
+        # 搜索商品路由
+        - id: search
+          uri: lb://livegoods-search
+          predicates:
+            - Path=/search
+            # 请求中必须包含city请求参数
+            - Query=city
+            - Query=content
+            - Query=page
+        # 登录路由
+        - id: login
+          uri: lb://livegoods-login
+          predicates:
+            - Path=/login
+        # 验证码路由
+        - id: sendyzm
+          uri: lb://livegoods-login
+          predicates:
+            - Path=/sendyzm
+        # 预订商品路由
+        - id: buyaction
+          uri: lb://livegoods-buyaction
+          predicates:
+            - Path=/buyaction
+        # 预订商品开始时间路由
+        - id: buytime
+          uri: lb://livegoods-buytime
+          predicates:
+            - Path=/buytime
+            - Query=id
+    config:
+      uri: http://localhost:9010
+      label: master
+      name: livegoods
+      profile: dev
