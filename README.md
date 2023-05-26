@@ -26,9 +26,10 @@
 1. 先在CentOS7虚拟机上，安装FastDFS、MongoDB、Redis、RabbitMQ以及Elasticsearch和kibana服务，
 然后将Eureka模块的POM文件进行配置，修改成自己虚拟机的ip地址和port端口号，然后进行打包，然后打开docker2375端口，对eureka模块的docker的docker:build进行双击，即可将eureka上传至docker容器中，在docker容器进行启动。
 2. 在虚拟机中安装完后，需要在对应的模块中配置主机地址等等，即使用ip和端口号，帐号密码等等
-3. 将前端和MongoDB数据库解压后，将livegoods.vue在VSCODE中打开，然后在终端启动
+3. 将前端和MongoDB数据库中的文件解压后，将livegoods.vue在VSCODE中打开，然后在终端启动
 4. 在MongoDB上面创建livegoods数据库，然后将数据库文件导入。
-5. 先在虚拟机运行docker上的eureka服务，然后运行其他服务。
-6. 最后在IDEA中先启动Config配置模块，再开启Gateway网关模块，然后启动其他模块。
-7. 短信验证模块，需要在login模块的utils包下的SMSUtils中，设置你的accessKeyId和accessKeySecret和setSignName以及你的VALIDATE_CODE。
-8. 像配置文件是bootstrap.yml文件，需要自己创建一个配置仓库，创建后需要在config模块中进行配置
+5. 短信验证模块，需要在login模块的utils包下的SMSUtils中，设置你的accessKeyId和accessKeySecret和setSignName以及你的VALIDATE_CODE。
+6. 像配置文件是bootstrap.yml文件，需要自己创建一个配置仓库，创建后需要在config模块中进行配置，zfw-cloud-config-master.zip内的文件上传至gitee即可使用配置中心的配置文件，每个模块的bootstrap.yml文件都需要配置config配置中心。
+7. 先在虚拟机运行docker上的eureka服务，然后运行其他服务。
+8. 最后在IDEA中先启动Config配置模块，再开启Gateway网关模块，然后启动其他模块。
+
