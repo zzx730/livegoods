@@ -306,8 +306,16 @@
       <workItem from="1684852049966" duration="37698000" />
       <workItem from="1684974121324" duration="35682000" />
       <workItem from="1685071059181" duration="20211000" />
-      <workItem from="1685100688299" duration="2878000" />
+      <workItem from="1685100688299" duration="4579000" />
     </task>
+    <task id="LOCAL-00001" summary="阿里云短信验证码">
+      <created>1685103905471</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685103905471</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
