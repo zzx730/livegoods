@@ -33,3 +33,5 @@
 7. 先在虚拟机运行docker上的eureka服务，然后运行其他服务。
 8. 最后在IDEA中先启动Config配置模块，再开启Gateway网关模块，然后启动其他模块。
 
+该项目CSDN的链接：https://blog.csdn.net/weixin_49076273/article/details/130666441
+
