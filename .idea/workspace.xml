@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="435442da-87a8-4185-9323-b82b9acc56a0" name="Changes" comment="阿里云短信验证码" />
+    <list default="true" id="435442da-87a8-4185-9323-b82b9acc56a0" name="Changes" comment="阿里云短信验证码">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -304,7 +306,7 @@
       <workItem from="1684852049966" duration="37698000" />
       <workItem from="1684974121324" duration="35682000" />
       <workItem from="1685071059181" duration="20211000" />
-      <workItem from="1685100688299" duration="1771000" />
+      <workItem from="1685100688299" duration="2878000" />
     </task>
     <servers />
   </component>
